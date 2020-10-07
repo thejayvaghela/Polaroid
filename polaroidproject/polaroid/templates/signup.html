@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Registration</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="../static/signup/css/montserrat-font.css">
+	<link rel="stylesheet" type="text/css" href="../static/signup/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="../static/signup/css/style.css"/>
+</head>
+<body class="form-v10">
+	<div class="page-content">
+		<div class="form-v10-content">
+			<form class="form-detail" action="polaroid/signup_auth/" method="POST" id="myform" enctype="multipart/form-data">
+				{% csrf_token %}
+				<div class="form-left">
+					<h1>Welcome to Polaroid</h1>
+<!--				<div class="form-row">
+						<select name="title">
+						    <option class="option" value="title">Title</option>
+						    <option class="option" value="businessman">Businessman</option>
+						    <option class="option" value="reporter">Reporter</option>
+						    <option class="option" value="secretary">Secretary</option>
+						</select>
+						<span class="select-btn">
+						  	<i class="zmdi zmdi-chevron-down"></i>
+						</span>
+					</div>	-->
+					<div class="form-group">
+						<div class="form-row form-row-1">
+							<input type="text" name="first_name" id="first_name" class="input-text" placeholder="First Name" required>
+						</div>
+						<div class="form-row form-row-2">
+							<input type="text" name="last_name" id="last_name" class="input-text" placeholder="Last Name" required>
+						</div>
+					</div>
+<!--				<div class="form-row">
+						<select name="position">
+						    <option value="position">Position</option>
+						    <option value="director">Director</option>
+						    <option value="manager">Manager</option>
+						    <option value="employee">Employee</option>
+						</select>
+						<span class="select-btn">
+						  	<i class="zmdi zmdi-chevron-down"></i>
+						</span>
+					</div>	-->
+					
+					<div class="form-row">
+						<input type="text" name="your_email" class="input-text" id="your_email" placeholder="Your Email" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+					</div>
+					<div class="form-row">
+						<input type="password" name="password" class="input-text" id="password" placeholder="Password" required>
+					</div>
+					<!--	<div class="form-row form-row">
+							<input type="radio" name="gender" class="gender" id="male" value="Male" required>
+							<label for="male">Male</label>
+						</div>	-->
+
+						
+					<div class="form-row">
+						DOB:
+						<input type="date" id="dob" name="dob" class="dob">
+					</div>
+					<div class="form-row">
+						Add Photo
+						<input type="file" id="profilepic" name="profilepic" class="profilepic" accept="image/*">
+					</div>
+				</div>
+				<div class="form-right">
+					<h2>Other Details</h2>
+
+					<div class="form-row">
+						<select name="gender">
+							<option value="gender">Gender</option>
+							<option value="male">Male</option>
+							<option value="female">Female</option>
+							<option value="other">Other</option>							    
+						</select>
+						<span class="select-btn">
+							  <i class="zmdi zmdi-chevron-down"></i>
+						</span>
+					</div>
+
+					<div class="form-row">
+						<input type="text" name="country" class="input-text" id="country" placeholder="Country">
+					</div>
+					<div class="form-row">
+						<input type="text" name="state" class="input-text" id="state" placeholder="State">
+					</div>
+					<div class="form-row">
+						<input type="text" name="city" class="input-text" id="city" placeholder="City">
+					</div>
+					
+			
+					<div class="form-row">
+						<input type="text" name="phone" class="input-text" id="phone" placeholder="Phone Number">
+					</div>
+					
+
+					<div class="form-checkbox">
+						<label class="container"><p>I do accept the <a href="#" class="text">Terms and Conditions</a> of your site.</p>
+						  	<input type="checkbox" name="checkbox" id="checkbox" required>
+						  	<span class="checkmark"></span>
+						</label>
+					</div>
+					<div class="form-row-last">
+						<input type="submit" name="register" class="register" value="Submit">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="submit" name="login" class="register" value="Not New?" onclick="window.location.href = '/login/';">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!--<script>
+		$("#dob").val(new Date().toISOString().substring(0, 10));
+	</script>-->
+	<!--<script>
+		function myFunction() {
+		  var d = document.getElementById("dob").value;
+		  var n = d.toISOString();
+		  document.getElementById("dob").innerHTML = n;
+		}
+		</script>-->
+
+</body>
+</html>

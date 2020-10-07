@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<title>Edit Profile</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<!--
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+-->
+
+<style>
+html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
+.bs-example{
+    	margin: 20px;
+    }
+
+</style>
+<body class="w3-theme-l5">
+
+    <div class="w3-top">
+        <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+         <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+         <a href="/home/" class="w3-bar-item w3-button w3-padding-large w3-theme-d4" title="Home"><i class="fa fa-home w3-margin-right"></i>POLAROID</a>
+         <a href="/all_friends/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Friends ({{all_friends_count}})"><i class="fa fa-user"></i></a>         
+        <a href="/searchpage/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Search"><i class="fa fa-search"></i></a>
+        
+        <!--<button type="submit"><i class="fa fa-search"></i></button> w3-bar-item  w3-hide-small   w3-padding-large            -->
+        <!--<a href="/searchresults/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Search"><i class="fa fa-search"></i></a>   -->
+
+        <a href="/logout/" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="Logout" onclick="return confirm('Are you sure to logout?');">
+          Logout
+        </a>
+
+         <a href="/userprofile/" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account">
+        {% if uploaded_pic_url  %}
+           <img src="{{ uploaded_pic_url.url }}" class="w3-circle" style="height:23px;width:23px" alt="">
+        {% else %}
+            <img src="/media/default.png" class="w3-circle" style="height:23px;width:23px" alt="Profile Pic">
+        {% endif %}
+         </a>
+
+         
+        </div>
+       </div>
+<br/><br/><br/><br/>
+
+<form action="/editprofile/" method="POST">
+    {% csrf_token %}
+<table>
+    <tr>
+        <td><b>Your Email:</b></td>
+        <td><b>{{ email }}</b></td>
+    </tr>
+    
+       
+        <tr>
+            <td>First Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td><input type="text" name="first_name" placeholder="First Name" ></td>
+        </tr>
+    
+    <tr>
+        <td>Last Name:</td>
+        <td><input type="text" name="last_name" placeholder="Last Name" required></td>
+    </tr>
+    
+    <tr>
+        <td>DOB:</td>
+        <td><input type="date" name="dob"></td>
+    </tr>
+    <tr>
+        <td>Gender:</td>
+    <td>
+        <select name="gender">
+            <option value="gender">Gender</option>
+			<option value="male">Male</option>
+			<option value="female">Female</option>
+			<option value="other">Other</option>							    
+        </select>
+    </td>
+    </tr>
+
+    <tr>
+        <td>Country:</td>
+        <td><input type="text" name="country" placeholder="Country"></td>
+    </tr>
+
+    <tr>
+        <td>State:</td>
+        <td><input type="text" name="state" placeholder="State"></td>
+    </tr>
+
+    <tr>
+        <td>City:</td>
+        <td><input type="text" name="city" placeholder="City"></td>
+    </tr>
+
+    <tr>
+        <td>Phone:</td>
+        <td><input type="text" name="phone" placeholder="Phone Number"></td>
+    </tr>
+
+    <tr>
+        <td><button type="submit">Submit</button></td>
+    </tr>
+
+  </table> 
+</form>
+  </body> 
+

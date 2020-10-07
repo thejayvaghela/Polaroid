@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title>OTP Verification</title>
+</head>
+<body>
+	<form action="polaroid/otpverfication/" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}	
+        <h1>Welcome to Polaroid</h1>
+        <h3>
+            Enter your OTP:
+        </h3>
+        <h3>
+            <input type="text" name="otp_entered" placeholder="OTP" required>
+        </h3>
+        <h3>
+            <input type="submit" name="2fa" value="Submit">
+        </h3>
+    </form>
+</body>
+</html>
+
